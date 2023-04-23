@@ -53,9 +53,7 @@ function Page() {
                   <p className="text-gray-700 group-hover:text-white text-base">This dish originated in {data.strArea}</p>
                   <div className="mt-3 flex items-center">
                     <span className="text-gray-900 group-hover:text-white font-bold text-ml">Category : {data.strCategory}</span>
-                    {/* <button href="#" className="ml-auto flex-shrink-0 bg-gray-800 hover:bg-gray-900 border-gray-800 hover:border-gray-900 text-sm border-4 text-white py-1 px-2 rounded" type="button">
-                      Detail
-                    </button> */}
+
                   </div>
                 </div>
               </Link>

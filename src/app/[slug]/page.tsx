@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import React from 'react'
-import { json } from 'stream/consumers';
+
 
 const getdataFromAPI2 = async (param: any) => {
     const getdata = await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${param}`);
@@ -17,11 +17,11 @@ async function page({ params }: { params: { slug: string } }) {
     return (
 
         < div className="bg-gray-100 min-h-screen" >
-            {/* Judul Masakan */}
+            {/* food title & Home Button */}
             <div className="bg-white py-10" >
                 <div className="container mx-auto px-4">
                     <Link href={`/`}>
-                        <button className='ml-auto flex-shrink-0 bg-gray-800 hover:bg-gray-900 border-gray-800 hover:border-gray-900 text-md border-4 text-white py-1 px-2 rounded-lg'> Back</button>
+                        <button className='ml-auto flex-shrink-0 bg-gray-800 hover:bg-gray-900 border-gray-800 hover:border-gray-900 text-md border-4 text-white py-1 px-2 rounded-lg'> Home</button>
                     </Link>
                     <h1 className="text-4xl font-bold text-center text-gray-900">{dat.strMeal}</h1>
                     <p className="text-2xl font-bold text-center text-gray-900">{dat.strCategory}</p>
@@ -29,18 +29,17 @@ async function page({ params }: { params: { slug: string } }) {
                 </div>
             </div >
 
-            {/* Video Masak dan Gambar Masak */}
+            {/* Video & image food */}
             <div className="container mx-auto px-4 mt-8 " >
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-1  ">
-                    {/* Gambar Masak */}
+                    {/* food image*/}
                     <div>
                         <div className="bg-cover bg-center rounded-lg overflow-hidden shadow-lg" style={{ backgroundImage: `url(${dat.strMealThumb})` }}>
                             <div className='relative h-[350px]'>
-                                {/* <img className="object-fill" src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe" alt="Gambar Masakan" /> */}
                             </div>
                         </div>
                     </div>
-                    {/* Video Masak */}
+                    {/* food Video*/}
                     <div>
                         <div className="bg-white rounded-lg overflow-hidden shadow-lg">
                             <div className="relative pb-9/16">
@@ -51,10 +50,10 @@ async function page({ params }: { params: { slug: string } }) {
                 </div>
             </div >
 
-            {/* Instruksi, Bahan-bahan, Lain-lain */}
+            {/* Instructions, Bahan-Ingredients*/}
             <div className="container mx-auto px-4 mt-2" >
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-1">
-                    {/* Instruksi */}
+                    {/* Instructions */}
                     <div>
                         <div className="bg-white rounded-lg overflow-hidden shadow-lg p-4">
                             <h2 className="text-xl font-bold mb-2 text-gray-900">Instructions</h2>
@@ -62,7 +61,7 @@ async function page({ params }: { params: { slug: string } }) {
                         </div>
                     </div>
 
-                    {/* Bahan-bahan */}
+                    {/* Bahan-Ingredients */}
                     <div>
                         <div className="bg-white rounded-lg overflow-hidden shadow-lg p-4">
                             <h2 className="text-xl font-bold mb-2 text-gray-900">Ingredients</h2>
