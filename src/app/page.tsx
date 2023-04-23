@@ -1,6 +1,6 @@
 'use client';
-import { json } from 'node:stream/consumers';
 import React, { useEffect, useState } from 'react'
+import Link from 'next/link';
 
 function Page() {
   const [data, setdata] = useState<any[]>([]);
@@ -45,19 +45,20 @@ function Page() {
           {/* Card recepie */}
           {data ? (data.map((data, i) => (
 
-            <div className="w-full md:w-1/2 lg:w-1/3 px-4 mb-8" key={i}>
-              <div className="bg-white rounded-lg overflow-hidden shadow-lg" >
+            <div className="w-full md:w-1/2 lg:w-1/3 px-4 mb-8 " key={i}>
+              <div className="group bg-white rounded-lg overflow-hidden shadow-lg hover:bg-gray-700 hover:ring-gray-700 cursor-pointer" ><Link href={`/${data.idMeal}`}>
                 <img className="w-full h-48 object-cover object-center" src={data.strMealThumb} alt="Gambar Produk"></img>
-                <div className="p-4">
-                  <h2 className="text-gray-900 font-bold text-lg mb-2">{data.strMeal} </h2>
-                  <p className="text-gray-700 text-base">This dish originated in {data.strArea}</p>
+                <div className="p-4 ">
+                  <h2 className="text-gray-900 group-hover:text-white font-bold text-lg mb-2 ">{data.strMeal} </h2>
+                  <p className="text-gray-700 group-hover:text-white text-base">This dish originated in {data.strArea}</p>
                   <div className="mt-3 flex items-center">
-                    <span className="text-gray-900 font-bold text-ml">Category : {data.strCategory}</span>
-                    <button className="ml-auto flex-shrink-0 bg-gray-800 hover:bg-gray-900 border-gray-800 hover:border-gray-900 text-sm border-4 text-white py-1 px-2 rounded" type="button">
+                    <span className="text-gray-900 group-hover:text-white font-bold text-ml">Category : {data.strCategory}</span>
+                    {/* <button href="#" className="ml-auto flex-shrink-0 bg-gray-800 hover:bg-gray-900 border-gray-800 hover:border-gray-900 text-sm border-4 text-white py-1 px-2 rounded" type="button">
                       Detail
-                    </button>
+                    </button> */}
                   </div>
                 </div>
+              </Link>
               </div>
             </div>
           ))) : (
